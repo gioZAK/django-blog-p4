@@ -1,0 +1,147 @@
+:root {
+    --light-color: #F9FAFC;
+    --light-s-color: #fff --primary-color: #25B3B3;
+    --secondary-color: #313942;
+    --tertiary-color: #E84610;
+}
+
+body {
+    background-color: var(--light-color);
+}
+
+.brand {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4A4A4F;
+}
+
+.red-just {
+    color: var(--tertiary-color);
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.light-bg {
+    background-color: var(--light-s-color);
+}
+
+.dark-bg {
+    background-color: var(--secondary-color);
+}
+
+.main-bg {
+    background-color: var(--light-color);
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: var(--primary-color);
+}
+
+.author {
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: var(--secondary-color);
+    color: var(--light-s-color);
+    position: relative;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: var(--secondary-color);
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.post-link {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.post-link:hover,
+.page-link {
+    color: var(--tertiary-color);
+}
+
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+.btn-signup {
+    background-color: var(--primary-color) color: var(--light-s-color);
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: var(--light-s-color);
+    color: var(--primary-color)
+}
+
+.link {
+    color: var(--primary-color) text-decoration: none;
+}
+
+.link:hover,
+.link:active {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.btn-like {
+    color: var(--tertiary-color);
+    border: none;
+    background: transparent;
+}
+
+.btn-like:hover,
+.btn-like:active {
+    color: var(--tertiary-color);
+    background: transparent;
+    border: none;
+}
