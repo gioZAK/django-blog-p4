@@ -15,7 +15,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <!-- source img "https://unsplash.com/it/foto/cckf4TsHAuw"-->
-                                <img class="card-img-top" href="../static/images/backupimage.jpg"
+                                <img class="card-img-top" src="../static/images/backupimage.jpg"
                                     alt="backup image of a laptop, coffe, notebook, mobile">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
@@ -30,7 +30,7 @@
                             </a>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} <i
-                                    class="fa-sharp fa-solid fa-thumbs-up"></i>
+                                    class="far fa-light fa-thumbs-up"></i>
                                 {{ post.number_of_likes }}</p>
                         </div>
                     </div>

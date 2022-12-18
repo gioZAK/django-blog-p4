@@ -1,6 +1,7 @@
 :root {
     --light-color: #F9FAFC;
-    --light-s-color: #fff --primary-color: #25B3B3;
+    --light-s-color: #fff;
+    --primary-color: #253db3;
     --secondary-color: #313942;
     --tertiary-color: #E84610;
 }
@@ -114,7 +115,8 @@ body {
 }
 
 .btn-signup {
-    background-color: var(--primary-color) color: var(--light-s-color);
+    background-color: var(--primary-color);
+    color: var(--light-s-color);
 }
 
 .btn-signup:hover,
@@ -124,7 +126,8 @@ body {
 }
 
 .link {
-    color: var(--primary-color) text-decoration: none;
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
 .link:hover,
