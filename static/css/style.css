@@ -114,13 +114,13 @@ body {
     color: lightgray;
 }
 
-.btn-signup {
+.btn-all {
     background-color: var(--primary-color);
     color: var(--light-s-color);
 }
 
-.btn-signup:hover,
-.btn-signup:active {
+.btn-all:hover,
+.btn-all:active {
     background-color: var(--light-s-color);
     color: var(--primary-color)
 }
