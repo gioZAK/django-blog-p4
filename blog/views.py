@@ -1,8 +1,11 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
+from cloudinary.uploader import upload
 
 
 class PostList(generic.ListView):
@@ -76,3 +79,26 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+@login_required
+def create_post(request):
+
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            image_url = None
+            if 'featured_image' in request.FILES:
+                image_url = upload(request.FILES['featured_image'])['url']
+            else:
+                image_url = 'placeholder'
+            post = form.save(commit=False)
+            post.author = request.user
+            post.status = 1
+            post.slug = slugify(post.title) 
+            post.featured_image = image_url
+            post.save()
+            return redirect(reverse('post_detail', args=[post.slug]))
+    else:
+        form = PostForm()
+    return render(request, 'create_post.html', {'form': form})
