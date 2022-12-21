@@ -24,7 +24,6 @@
         </div>
     </div>
 </div>
-
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
@@ -67,6 +66,13 @@
             </div>
         </div>
     </div>
+    <div class="container d-flex justify-content-center align-center">
+        <div class="btn-group" role="group">
+            {% if user.is_authenticated and user == post.author %}
+            <a class="btn btn-primary" href="{% url 'edit_post' post.slug %}">EDIT POST</a>
+            {% endif %}
+        </div>
+    </div>
     <div class="row">
         <div class="col">
             <hr>
@@ -104,11 +110,11 @@
                 {% if user.is_authenticated %}
 
                 <h3>Leave a comment:</h3>
-                <p>Posting as: {{ user.username }}</p>
+                <p>Posting as: <span class="text-success">{{ user.username }}</span></p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button type="submit" class="btn btn-all btn-lg mt-2">Submit</button>
                 </form>
                 {% endif %}
                 {% endif %}
