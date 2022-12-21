@@ -16,9 +16,9 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <!-- source img "https://unsplash.com/it/foto/cckf4TsHAuw"-->
                 <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                    alt="backup image of a laptop, coffe, notebook, mobile on a table" width="100%">
+                    alt="backup image of a laptop, coffe, notebook, mobile on a table" width="600">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" width="100%">
+                <img src=" {{ post.featured_image.url }}" width="600">
                 {% endif %}
             </div>
         </div>
@@ -30,30 +30,30 @@
             <div class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
-                <p class="card-text ">
-                    {{ post.content | safe }}
-                </p>
+                <p class="card-text "></p>
+                {{ post.content | safe }}
+
                 <div class="row">
 
                     <div class="col-1">
-                        <strong>
-                            {% if user.is_authenticated %}
-                            <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
-                                {% csrf_token %}
-                                {% if liked %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                        class="fas fa-solid fa-thumbs-up"></i></button>
-                                {% else %}
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
-                                        class="far fa-light fa-thumbs-up"></i></button>
-                                {% endif %}
-                            </form>
+
+                        {% if user.is_authenticated %}
+                        <form class="d-inline" action="{% url 'post_like' post.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if liked %}
+                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                    class="fas fa-solid fa-thumbs-up"></i></button>
                             {% else %}
-                            <span class="text-secondary"><i class="far fa-light fa-thumbs-up"></i></span>
+                            <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                    class="far fa-light fa-thumbs-up"></i></button>
                             {% endif %}
-                            <!-- The number of likes goes before the closing strong tag -->
-                            <span class="text-secondary">{{ post.number_of_likes }} </span>
-                        </strong>
+                        </form>
+                        {% else %}
+                        <span class="text-secondary"><i class="far fa-light fa-thumbs-up"></i></span>
+                        {% endif %}
+                        <!-- The number of likes goes before the closing strong tag -->
+                        <span class="text-secondary">{{ post.number_of_likes }} </span>
+
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
