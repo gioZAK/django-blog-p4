@@ -140,3 +140,10 @@ def delete_post(request, slug):
         post.delete()
         return redirect('home')
     return render(request, 'delete_post.html', {'post': post})
+
+
+@login_required
+def profile(request, username):
+    user = get_object_or_404(User, username=username)
+    posts = Post.objects.filter(author=user)
+    return render(request, 'profile.html', {'user': user, 'posts': posts})
