@@ -4,14 +4,18 @@
 
 {% load crispy_forms_tags %}
 
-<div class="row pt-2">
+
+<div class="py-2 and px-5">
     <form method="post" action="{% url 'create_post' %}" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form|crispy }}
-        <div class="pt-2">
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4 text-center">Blog Post</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="pt-2 form-group">
             <input type="file" name="featured_image">
         </div>
-        <div class="pt-3 pb-3 text-center">
+        <div class="pt-3 form-group text-center">
             <button type="submit" class="btn btn-all">Create</button>
         </div>
     </form>
