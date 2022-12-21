@@ -95,7 +95,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.status = 1
-            post.slug = slugify(post.title) 
+            post.slug = slugify(post.title)
             post.featured_image = image_url
             post.save()
             return redirect(reverse('post_detail', args=[post.slug]))
