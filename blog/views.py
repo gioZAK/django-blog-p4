@@ -102,3 +102,28 @@ def create_post(request):
     else:
         form = PostForm()
     return render(request, 'create_post.html', {'form': form})
+
+
+@login_required
+def edit_post(request, slug):
+    post = get_object_or_404(Post, slug=slug)
+    # Only allow the post's author to edit the post
+    if request.user != post.author:
+        return HttpResponseForbidden()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            image_url = post.featured_image
+            if 'featured_image' in request.FILES:
+                image_url = upload(request.FILES['featured_image'])['url']
+            post = form.save(commit=False)
+            post.author = request.user
+            post.status = 1
+            post.slug = slugify(post.title)
+            post.featured_image = image_url
+            post.save()
+            return redirect(reverse('post_detail', args=[post.slug]))
+    else:
+        form = PostForm(instance=post)
+    return render(request, 'edit_post.html', {'form': form, 'post': post})
