@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm, PostForm
 from cloudinary.uploader import upload
+
 
 
 class PostList(generic.ListView):
