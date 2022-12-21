@@ -50,8 +50,12 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
-                    Your opinion matter
+                <span class="font-weight-bold text-lg">
+                    {% if user.is_authenticated %}
+                    Welcome : <span class="text-success">{{ user.username }}</span>
+                    {% else %}
+                    Your opinion matter!
+                    {% endif %}
                 </span>
             </div>
         </div>
