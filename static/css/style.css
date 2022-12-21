@@ -136,6 +136,11 @@ body {
     text-decoration: underline;
 }
 
+.no-link-style {
+    color: inherit;
+    text-decoration: none;
+}
+
 .btn-like {
     color: var(--tertiary-color);
     border: none;
