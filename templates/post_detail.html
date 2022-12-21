@@ -70,6 +70,7 @@
         <div class="btn-group" role="group">
             {% if user.is_authenticated and user == post.author %}
             <a class="btn btn-primary" href="{% url 'edit_post' post.slug %}">EDIT POST</a>
+            <a class="btn btn-danger" href="{% url 'delete_post' post.slug %}">DELETE POST</a>
             {% endif %}
         </div>
     </div>
