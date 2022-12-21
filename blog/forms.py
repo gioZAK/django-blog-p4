@@ -15,3 +15,6 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'excerpt', 'content']
+        widgets = {
+            'content': SummernoteWidget(attrs={'summernote': {'width': '100%'}})
+        }
