@@ -57,6 +57,10 @@
                     Your opinion matter!
                     {% endif %}
                 </span>
+                <!-- I need to find a new place to show user profile or maybe style it better-->
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' username=user.username %}" class="btn btn-primary">View Profile</a>
+                {% endif %}
             </div>
         </div>
     </nav>
