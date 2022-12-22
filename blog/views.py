@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
 from django.utils.text import slugify
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm, PostForm
 from cloudinary.uploader import upload
-
 
 
 class PostList(generic.ListView):
@@ -153,3 +153,23 @@ def profile(request, username):
     is_owner = request.user == user
     return render(request, 'profile.html', {'user': user, 'posts': posts,
                                             'is_owner': is_owner})
+
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        # Handle form submission
+        username = request.POST['username']
+        # Get the user object
+        user = User.objects.get(username=username)
+        # Delete the user's account
+        User.objects.filter(username=username).delete()
+        # Delete the user's comments
+        Comment.objects.filter(name=username).delete()
+        # Display a success message
+        messages.success(request, f'Account "{username}" was deleted.')
+        # Redirect to a home page
+        return redirect('home')
+    else:
+        # Render the delete account template
+        return render(request, 'delete_account.html')
