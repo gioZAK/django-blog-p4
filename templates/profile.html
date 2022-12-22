@@ -38,7 +38,12 @@
     </div>
     <!-- This button takes the user to the delete account page and it's only displayed if he is the owner-->
     {% if is_owner %}
-    <a href="/account/delete/" class="btn btn-danger my-3">Delete Account</a>
+    <div class="pt-3 form-group text-center">
+        <a class="btn btn-primary" href="{% url 'account_change_password'  %}">Change Password</a>
+    </div>
+    <div class="pt-3 form-group text-center">
+        <a href="/account/delete/" class="btn btn-danger my-3">Delete Account</a>
+    </div>
     {% endif %}
 </div>
 
