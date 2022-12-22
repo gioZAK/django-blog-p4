@@ -146,6 +146,10 @@ def delete_post(request, slug):
 
 @login_required
 def profile(request, username):
+    # Get the user whose profile is being viewed
     user = get_object_or_404(User, username=username)
     posts = Post.objects.filter(author=user)
-    return render(request, 'profile.html', {'user': user, 'posts': posts})
+    # Check if the logged-in user is the owner of the profile
+    is_owner = request.user == user
+    return render(request, 'profile.html', {'user': user, 'posts': posts,
+                                            'is_owner': is_owner})
