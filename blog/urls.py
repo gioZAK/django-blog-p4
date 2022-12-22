@@ -9,5 +9,5 @@ urlpatterns = [
     path('delete/<slug:slug>/', views.delete_post, name='delete_post'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
     path('profile/<str:username>/', views.profile, name='profile'),
+    path('account/delete/', views.delete_account, name='delete_account'),
 ]
-
