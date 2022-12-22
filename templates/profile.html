@@ -15,7 +15,7 @@
             <!-- Display the last time the user entered the website -->
             <p>Last login: {{ user.last_login }}</p>
             <!-- Container for the posts -->
-            <div class="container mt-2 mb-5">
+            <div class="container mt-2">
                 <!-- Heading for the posts -->
                 <h2 class="mt-5">Posts:</h2>
                 <!-- Conditional block to check if the user has any posts -->
@@ -36,6 +36,10 @@
             </div>
         </div>
     </div>
+    <!-- This button takes the user to the delete account page and it's only displayed if he is the owner-->
+    {% if is_owner %}
+    <a href="/account/delete/" class="btn btn-danger my-3">Delete Account</a>
+    {% endif %}
 </div>
 
 {% endblock %}
