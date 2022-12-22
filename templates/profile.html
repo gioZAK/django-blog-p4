@@ -10,7 +10,10 @@
         <div class="col-md-8 offset-md-2 mt-1">
             <!-- Heading with the username -->
             <h1>{{ user.username }}'s profile</h1>
-
+            <!-- Display the date when the user joined -->
+            <p>Joined on: {{ user.date_joined}}</p>
+            <!-- Display the last time the user entered the website -->
+            <p>Last login: {{ user.last_login }}</p>
             <!-- Container for the posts -->
             <div class="container mt-2">
                 <!-- Heading for the posts -->
