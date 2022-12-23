@@ -10,8 +10,6 @@ class CommentForm(forms.ModelForm):
 
 
 class PostForm(forms.ModelForm):
-    featured_image = CloudinaryField('image', default='placeholder')
-
     class Meta:
         model = Post
-        fields = ['title', 'excerpt', 'content']
+        fields = ['title', 'excerpt', 'content', 'featured_image']
