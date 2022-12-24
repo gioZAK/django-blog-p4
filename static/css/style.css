@@ -95,15 +95,17 @@ body {
     text-decoration: none;
 }
 
-.btn-like {
+.btn-liked {
     color: var(--accent-color);
     border: none;
     background: transparent;
 }
 
-.btn-like:hover,
-.btn-like:active {
-    color: var(--accent-color);
-    background: transparent;
+.btn-like {
     border: none;
+    background: transparent;
+}
+
+.btn-like:hover {
+    color: var(--accent-color);
 }
