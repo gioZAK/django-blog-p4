@@ -114,3 +114,11 @@ body {
 .btn-like:hover {
     color: var(--accent-color);
 }
+
+.profile-card {
+    background-color: #f8f5f5
+}
+
+.profile-post {
+    background-color: #f0f0f0
+}
