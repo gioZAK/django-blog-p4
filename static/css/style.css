@@ -57,7 +57,7 @@ body {
     position: absolute;
     bottom: 80%;
     min-width: 30%;
-    left: -2px;
+    left: -5px;
     background-color: var(--light-s-color);
     border-radius: 5%;
     opacity: 80%;

@@ -27,7 +27,18 @@
                                     <img class="card-img-top index-img" src=" {{ post.featured_image.url }}"
                                         alt="Image sent by post owner">
                                     {% endif %}
-                                    <div class="image-flash">
+                                    <div class="image-flash text-center">
+                                        <div class="pt-2">
+                                            {% if "placeholder" in post.author.profile.profile_picture.url %}
+                                            <!-- Display a default image -->
+                                            <img src="https://res.cloudinary.com/df6eqqbys/image/upload/v1671873081/w9pr6prqxch8piudggrp.png"
+                                                alt="Default image" class="img-fluid rounded-circle" width="30">
+                                            {% else %}
+                                            <!-- Display the author's image -->
+                                            <img src="{{ post.author.profile.profile_picture.url }}"
+                                                alt="Profile picture" class="img-fluid rounded-circle" width="30">
+                                            {% endif %}
+                                        </div>
                                         <p class="author text-truncate text-center">{{ post.author }}</p>
                                     </div>
                                 </div>
