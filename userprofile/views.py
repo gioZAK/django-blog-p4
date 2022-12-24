@@ -41,3 +41,30 @@ class DeleteAccountView(LoginRequiredMixin, generic.TemplateView):
         messages.success(request, f'Account "{username}" was deleted.')
         # Redirect to a home page
         return redirect('home')
+
+
+class EditProfileView(View):
+    def get(self, request, username):
+        # Get the user object
+        user = get_object_or_404(User, username=username)
+
+        # Check if the logged-in user is the owner of the profile
+        if request.user != user:
+            # If the logged-in user is not the owner, display an error message
+            messages.error(request, 'You are not allowed.')
+            # Redirect the user back to the home page
+            return redirect('home')
+
+        form = ProfileForm(instance=user.profile)
+        return render(request, 'edit_profile.html', {'form': form,
+                                                     'username': username})
+
+    def post(self, request, username):
+        # Get the user object
+        user = get_object_or_404(User, username=username)
+
+        form = ProfileForm(request.POST, request.FILES, instance=user.profile)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile was updated successfully!')
+            return redirect(reverse('profile', args=[username]))
