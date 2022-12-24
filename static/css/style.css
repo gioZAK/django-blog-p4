@@ -1,9 +1,10 @@
 :root {
-    --light-color: #F9FAFC;
-    --light-s-color: #fff;
-    --primary-color: #253db3;
-    --secondary-color: #313942;
-    --tertiary-color: #E84610;
+    --light-color: #f6f6f6;
+    --light-s-color: rgb(255, 255, 255);
+    --blue-color: #0004ff;
+    --dark-color: #000000;
+    --accent-color: #fb0202;
+
 }
 
 body {
@@ -14,11 +15,11 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: var(--secondary-color);
+    color: var(--dark-color);
 }
 
 .red-just {
-    color: var(--tertiary-color);
+    color: var(--accent-color);
 }
 
 .bold {
@@ -30,7 +31,7 @@ body {
 }
 
 .dark-bg {
-    background-color: var(--secondary-color);
+    background-color: var(--dark-color);
 }
 
 .main-bg {
@@ -58,7 +59,7 @@ body {
     bottom: 80%;
     min-width: 30%;
     left: -2px;
-    background-color: var(--primary-color);
+    background-color: var(--blue-color);
 }
 
 .author {
@@ -70,12 +71,12 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: var(--secondary-color);
+    color: var(--dark-color);
 }
 
 .post-link:hover,
 .page-link {
-    color: var(--tertiary-color);
+    color: var(--accent-color);
 }
 
 .post-title {
@@ -89,14 +90,14 @@ body {
 }
 
 .btn-all {
-    background-color: var(--primary-color);
+    background-color: var(--blue-color);
     color: var(--light-s-color);
 }
 
 .btn-all:hover,
 .btn-all:active {
     background-color: var(--light-s-color);
-    color: var(--primary-color)
+    color: var(--blue-color)
 }
 
 
@@ -106,14 +107,14 @@ body {
 }
 
 .btn-like {
-    color: var(--tertiary-color);
+    color: var(--accent-color);
     border: none;
     background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: var(--tertiary-color);
+    color: var(--accent-color);
     background: transparent;
     border: none;
 }
