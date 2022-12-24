@@ -58,10 +58,10 @@
     {% if is_owner %}
     <div>
         <div class="pt-3 form-group text-center">
-            <a href="{% url 'edit' username=user.username %}" class="btn btn-primary btn-sizer ">Edit Profile</a>
+            <a href="{% url 'edit' username=user.username %}" class="btn btn-all btn-sizer ">Edit Profile</a>
         </div>
         <div class="pt-3 form-group text-center">
-            <a class="btn btn-primary btn-sizer " href="{% url 'account_change_password'  %}">Change Password</a>
+            <a class="btn btn-all btn-sizer " href="{% url 'account_change_password'  %}">Change Password</a>
         </div>
         <div class="pt-3 form-group text-center">
             <a href="{% url 'delete_account' %}" class="btn btn-danger btn-sizer ">Delete Account</a>
