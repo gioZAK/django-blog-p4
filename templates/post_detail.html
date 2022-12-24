@@ -70,11 +70,13 @@
                             {% endwith %}
                         </div>
                         <!-- Invitation to view the post owner's profile-->
+                        {% if user.is_authenticated and user != post.author %}
                         <div class="mt-2 text-center">
                             <a href="{% url 'profile' username=post.author.username %}" class="btn btn-all">
                                 Check out {{ post.author }}'s profile
                             </a>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
