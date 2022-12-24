@@ -11,6 +11,13 @@ from .forms import ProfileForm
 from .models import Profile
 
 
+# Receiver created in order to create a profile for the user after register
+@receiver(post_save, sender=User)
+def create_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
 class ProfileView(generic.TemplateView):
     template_name = 'profile.html'
 
