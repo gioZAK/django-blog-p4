@@ -125,6 +125,7 @@ def edit_post(request, slug):
             post.slug = slugify(post.title)
             post.featured_image = image_url
             post.save()
+            messages.success(request, f'Post "{post}" edited successfully')
             return redirect(reverse('post_detail', args=[post.slug]))
     else:
         form = PostForm(instance=post)
