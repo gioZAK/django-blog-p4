@@ -100,6 +100,7 @@ def create_post(request):
             post.slug = slugify(post.title)
             post.featured_image = image_url
             post.save()
+            messages.success(request, f'Post "{post}" created successfully')
             return redirect(reverse('post_detail', args=[post.slug]))
     else:
         form = PostForm()
