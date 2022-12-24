@@ -78,6 +78,11 @@ body {
     color: var(--light-s-color);
 }
 
+.btn-sizer {
+    width: 10em;
+    height: 3em;
+}
+
 .btn-all {
     background-color: var(--blue-color);
     color: var(--light-s-color);
