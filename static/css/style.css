@@ -14,7 +14,7 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: var(--secondary-color);
 }
 
 .red-just {
@@ -46,53 +46,27 @@ body {
     position: relative;
 }
 
+.all-img {
+    object-fit: cover;
+    height: 25em;
+    background: center;
+}
+
+
 .image-flash {
     position: absolute;
-    bottom: 5%;
+    bottom: 80%;
     min-width: 30%;
     left: -2px;
     background-color: var(--primary-color);
 }
 
 .author {
-    color: white;
+    color: var(--light-s-color);
     margin: 4px;
     text-transform: uppercase;
 }
 
-.masthead {
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    display: inline-block;
-    height: 33vh;
-    width: 100%;
-}
-
-.masthead-text {
-    background-color: var(--secondary-color);
-    color: var(--light-s-color);
-    position: relative;
-}
-
-.masthead-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.masthead-image:after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 90%;
-    height: 100%;
-    width: 150%;
-    background: var(--secondary-color);
-    -webkit-transform: skew(15deg);
-    -moz-transform: skew(15deg);
-    transform: skew(15deg);
-    z-index: 100;
-}
 
 .post-link {
     text-decoration: none;
@@ -111,7 +85,7 @@ body {
 
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: var(--light-s-color);
 }
 
 .btn-all {
@@ -125,16 +99,6 @@ body {
     color: var(--primary-color)
 }
 
-.link {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: var(--secondary-color);
-    text-decoration: underline;
-}
 
 .no-link-style {
     color: inherit;
