@@ -23,9 +23,13 @@ class PostDetail(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comments'] = self.object.comments.filter(approved=True).order_by("-created_on")
+        context['comments'] = self.object.comments.filter(
+            approved=True
+            ).order_by("-created_on")
         context['commented'] = False
-        context['liked'] = self.object.likes.filter(id=self.request.user.id).exists()
+        context['liked'] = self.object.likes.filter(
+            id=self.request.user.id
+            ).exists()
         context['comment_form'] = CommentForm()
         return context
 
@@ -86,7 +90,9 @@ class PostCreateView(generic.CreateView):
         form.instance.slug = slugify(form.instance.title)
         # Save the post and redirect to the success URL
         response = super().form_valid(form)
-        messages.success(self.request, f'Post "{form.instance}" created successfully')
+        messages.success(
+            self.request, f'Post "{form.instance}" created successfully'
+            )
         return response
 
     def get_success_url(self):
@@ -107,7 +113,9 @@ class PostEditView(generic.UpdateView):
     def form_valid(self, form):
         # Save the post and redirect to the post detail page
         response = super().form_valid(form)
-        messages.success(self.request, f'Post "{form.instance}" updated successfully')
+        messages.success(
+            self.request, f'Post "{form.instance}" updated successfully'
+            )
         return response
 
 
@@ -121,4 +129,3 @@ class PostDeleteView(generic.DeleteView):
         response = super().delete(request, *args, **kwargs)
         messages.success(request, f'Post "{self.object}" deleted successfully')
         return response
-
