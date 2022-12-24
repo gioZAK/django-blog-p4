@@ -53,19 +53,22 @@ body {
     background: center;
 }
 
-
 .image-flash {
     position: absolute;
     bottom: 80%;
     min-width: 30%;
     left: -2px;
-    background-color: var(--blue-color);
+    background-color: var(--light-s-color);
+    border-radius: 5%;
+    opacity: 80%;
 }
 
 .author {
-    color: var(--light-s-color);
-    margin: 4px;
+    color: var(--dark-color);
     text-transform: uppercase;
+    margin: 4px;
+    font-weight: 700;
+
 }
 
 .post-title {
@@ -94,12 +97,6 @@ body {
     color: var(--light-color);
 }
 
-
-.no-link-style {
-    color: inherit;
-    text-decoration: none;
-}
-
 .btn-liked {
     color: var(--accent-color);
     border: none;
@@ -121,4 +118,9 @@ body {
 
 .profile-post {
     background-color: #f0f0f0
+}
+
+.no-link-style {
+    color: inherit;
+    text-decoration: none;
 }
