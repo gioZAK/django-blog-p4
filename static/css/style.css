@@ -68,17 +68,6 @@ body {
     text-transform: uppercase;
 }
 
-
-.post-link {
-    text-decoration: none;
-    color: var(--dark-color);
-}
-
-.post-link:hover,
-.page-link {
-    color: var(--accent-color);
-}
-
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
