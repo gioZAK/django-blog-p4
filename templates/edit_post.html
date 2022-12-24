@@ -11,11 +11,14 @@
             <legend class="border-bottom mb-4 text-center">Edit Post</legend>
             {{ form|crispy }}
         </fieldset>
-        <div class="pt-3 form-group text-center">
-            <button type="submit" class="btn btn-all" value="Save">Submit Changes</button>
-        </div>
-        <div class="pt-3 form-group text-center">
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_detail' post.slug %}">Cancel</a>
+        <div>
+            <div class="pt-3 form-group text-center">
+                <button type="submit" class="btn btn-all btn-sizer" value="Save">Submit Changes</button>
+            </div>
+            <div class="pt-3 form-group text-center">
+                <a class="btn btn-secondary btn-sm mt-1 mb-1 btn-sizer"
+                    href="{% url 'post_detail' post.slug %}">Cancel</a>
+            </div>
         </div>
     </form>
 </div>

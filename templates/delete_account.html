@@ -10,11 +10,13 @@
         <p class="text-danger text-center">Warning: Deleting your account is <b>permanent</b> and <b>cannot</b> be
             undone. Are you sure you want to <b>delete</b> your account?</p>
         <p class="text-danger text-center">All your <b>posts</b> and <b>comments</b> will be deleted as well.</p>
-        <div class="pt-3 form-group text-center">
-            <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
-        </div>
-        <div class="pt-3 form-group text-center">
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'home' %}">Cancel</a>
+        <div>
+            <div class="pt-3 form-group text-center">
+                <button type="submit" class="btn btn-danger btn-sizer" value="Delete">Delete</button>
+            </div>
+            <div class="pt-3 form-group text-center">
+                <a class="btn btn-secondary btn-sm mt-1 mb-1 btn-sizer" href="{% url 'home' %}">Cancel</a>
+            </div>
         </div>
     </form>
 </div>

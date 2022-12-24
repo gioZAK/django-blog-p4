@@ -14,11 +14,14 @@
             be undone. Are you sure
             you want to
             <b>delete</b> this post?</p>
-        <div class="pt-3 form-group text-center">
-            <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
-        </div>
-        <div class="pt-3 form-group text-center">
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_detail' post.slug %}">Cancel</a>
+        <div>
+            <div class="pt-3 form-group text-center">
+                <button type="submit" class="btn btn-danger btn-sizer" value="Delete">Delete</button>
+            </div>
+            <div class="pt-3 form-group text-center">
+                <a class="btn btn-secondary btn-sm mt-1 mb-1 btn-sizer"
+                    href="{% url 'post_detail' post.slug %}">Cancel</a>
+            </div>
         </div>
     </form>
 </div>
