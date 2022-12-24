@@ -137,11 +137,12 @@ def delete_post(request, slug):
     # Only allow the post's author to delete the post
     if request.user != post.author:
         return HttpResponseForbidden()
-
     if request.method == 'POST':
         post.delete()
+        messages.success(request, f'Post "{post}" deleted successfully')
         return redirect('home')
     return render(request, 'delete_post.html', {'post': post})
+
 
 
 @login_required
