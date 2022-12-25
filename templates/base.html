@@ -6,13 +6,18 @@
 <head>
     <title>JustBlog</title>
 
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a open blog where everybody can join and share your opinion.">
+    <meta name="keywords" content="blog, blogpost, blogger, express">
+
+    <!-- Google fonts and font awesome -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a open blog where everybody can join and share your opinion.">
-    <meta name="keywords" content="blog, blogpost, blogger, express">
+
+    <!-- Bootstrap and CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
@@ -28,6 +33,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white bold">
         <div class="container-fluid">
+            <!-- Site Logo -->
             <a class="navbar-brand" href="{% url 'home' %}">
                 <span class="brand">
                     <span class="accent-just">just</span>
@@ -39,13 +45,13 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
+                <!-- All nav links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link  {% if request.path == '/' %}active{% endif %}" aria-current="page"
                             href="{% url 'home' %}">Home</a>
                     </li>
                     {% if user.is_authenticated %}
-                    <!-- Other nav links -->
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' username=request.user.username %}">
                             Profile
@@ -66,6 +72,7 @@
                     </li>
                     {% endif %}
                 </ul>
+                <!-- If the user is logged in it will show his name, if not a place holder text. -->
                 <div class="text-lg mr-5">
                     {% if user.is_authenticated %}
                     <div class="navbar-nav">
@@ -84,7 +91,7 @@
             </div>
         </div>
     </nav>
-
+    <!-- Message to the user for all data changes -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -100,7 +107,7 @@
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
-        <!-- Content Goes here -->
+        <!-- Content here -->
         {% endblock content %}
     </main>
 
