@@ -10,6 +10,9 @@ from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
+    """
+    The PostList view allows the user to view a paginated list of post
+    """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -17,10 +20,15 @@ class PostList(generic.ListView):
 
 
 class PostDetail(generic.DetailView):
+    """
+    The PostDetail view allows the user to view the post page itself,
+    displaying post, likes, comments
+    """
     model = Post
     template_name = 'post_detail.html'
     queryset = Post.objects.filter(status=1)
 
+    # This method get data and add it if there is a comment or like
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['comments'] = self.object.comments.filter(
@@ -33,6 +41,7 @@ class PostDetail(generic.DetailView):
         context['comment_form'] = CommentForm()
         return context
 
+    # This method post comment and check the like status
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
@@ -66,9 +75,13 @@ class PostDetail(generic.DetailView):
 
 
 class PostLike(generic.RedirectView):
+    """
+    The PostLike view allows the user to view the post itself
+    """
     permanent = False
     query_string = True
 
+    # Allows the user to like and unlike
     def get_redirect_url(self, *args, **kwargs):
         post = get_object_or_404(Post, slug=kwargs['slug'])
         if post.likes.filter(id=self.request.user.id).exists():
@@ -79,10 +92,14 @@ class PostLike(generic.RedirectView):
 
 
 class PostCreateView(generic.CreateView):
+    """
+    The PostCreateView view allows the user to create a new blog post
+    """
     model = Post
     form_class = PostForm
     template_name = 'create_post.html'
 
+    # This method post the form and display a success message
     def form_valid(self, form):
         # Set the author and status of the post
         form.instance.author = self.request.user
@@ -95,37 +112,45 @@ class PostCreateView(generic.CreateView):
             )
         return response
 
+    # This method determines the url of the created post
     def get_success_url(self):
         # Get the slug of the post that was just created
         slug = self.object.slug
-        # Return the post detail page URL for the post with the given slug
         return reverse('post_detail', args=[slug])
 
 
 class PostEditView(generic.UpdateView):
+    """
+    The PostEditView allows the user to edit his post.
+    """
     model = Post
     form_class = PostForm
     template_name = 'edit_post.html'
 
-    def get_success_url(self):
-        return reverse('post_detail', args=[self.object.slug])
-
+    # Save the post and redirect to the post detail page
     def form_valid(self, form):
-        # Save the post and redirect to the post detail page
         response = super().form_valid(form)
         messages.success(
             self.request, f'Post "{form.instance}" updated successfully'
             )
         return response
 
+    # This method determines the url
+    def get_success_url(self):
+        return reverse('post_detail', args=[self.object.slug])
+
 
 class PostDeleteView(generic.DeleteView):
+    """
+    The PostDeleteView deletes the and redirects the user to the home page
+    """
+
     model = Post
     template_name = 'delete_post.html'
     success_url = reverse_lazy('home')
 
+    # This method gets the user response and display a message.
     def delete(self, request, *args, **kwargs):
-        # Delete the post and redirect to the home page
         response = super().delete(request, *args, **kwargs)
         messages.success(request, f'Post "{self.object}" deleted successfully')
         return response
