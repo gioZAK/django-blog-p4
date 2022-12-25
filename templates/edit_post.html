@@ -1,9 +1,11 @@
+<!-- Extends the base template -->
 {% extends 'base.html' %}
 
 {% block content %}
 
 {% load crispy_forms_tags %}
 
+<!-- Form that allows user to edit a post -->
 <div class="py-2 and px-5">
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
@@ -15,6 +17,7 @@
             <div class="pt-3 form-group text-center">
                 <button type="submit" class="btn btn-all btn-sizer" value="Save">Submit Changes</button>
             </div>
+            <!-- Allows the user to comeback to the post without sending any changes -->
             <div class="pt-3 form-group text-center">
                 <a class="btn btn-secondary btn-sm mt-1 mb-1 btn-sizer"
                     href="{% url 'post_detail' post.slug %}">Cancel</a>

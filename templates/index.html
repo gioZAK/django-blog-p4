@@ -1,8 +1,11 @@
+<!-- Extends the base template -->
 {% extends "base.html" %}
 
 {% block content %}
 
+<!-- Blog Post are displayed here -->
 <div class="container-fluid">
+    <!-- After user has logged in he can click on the create button post -->
     <div class="row">
         {% if user.is_authenticated %}
         <div class="btn-group">
@@ -17,6 +20,7 @@
                     <div class="card mb-4">
                         <div class="card-body p-4 shadow-sm bg-white rounded">
                             <a href="{% url 'post_detail' post.slug %}" class=" no-link-style">
+                                <!-- Post Image -->
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
                                     <!-- source img "https://unsplash.com/it/foto/cckf4TsHAuw"-->
@@ -43,18 +47,21 @@
                                         <p class="author text-truncate text-center">{{ post.author }}</p>
                                     </div>
                                 </div>
+                                <!-- Post title and summary -->
                                 <div class=" post-link">
                                     <h2 class="card-title">{{ post.title }}</h2>
                                     <p class="card-text">{{ post.excerpt }}</p>
                                 </div>
                             </a>
                             <hr>
+                            <!-- Display when the post was created and how many likes the post has -->
                             <p class="card-text text-muted h6">{{ post.created_on}} <i
                                     class="far fa-light fa-thumbs-up"></i>
                                 {{ post.number_of_likes }}</p>
                         </div>
                     </div>
                 </div>
+                <!-- Let it display 3 post in a row -->
                 {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
@@ -64,7 +71,7 @@
             </div>
         </div>
     </div>
-
+    <!-- When the number of post reaches 6 it will create a next button -->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
