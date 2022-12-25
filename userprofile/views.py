@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.contrib import messages
 from django.views import generic, View
@@ -19,6 +18,9 @@ def create_profile(sender, instance, created, **kwargs):
 
 
 class ProfileView(generic.TemplateView):
+    """
+    The ProfileView view allows the user to view profiles
+    """
     template_name = 'profile.html'
 
     def get_context_data(self, **kwargs):
@@ -33,6 +35,9 @@ class ProfileView(generic.TemplateView):
 
 
 class DeleteAccountView(LoginRequiredMixin, generic.TemplateView):
+    """
+    The DeleteAccountView view allows the user delete his profile
+    """
     template_name = 'delete_account.html'
 
     def post(self, request, *args, **kwargs):
@@ -51,6 +56,9 @@ class DeleteAccountView(LoginRequiredMixin, generic.TemplateView):
 
 
 class EditProfileView(View):
+    """
+    The EditProfileView view allows the user edit his profile
+    """
     def get(self, request, username):
         # Get the user object
         user = get_object_or_404(User, username=username)
