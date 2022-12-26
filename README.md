@@ -45,30 +45,57 @@ The colors used were:
 <summary>
 Wireframe
 </summary>
+
 <details>
 <summary>
 Wireframe Home
 </summary>
 <img src="https://github.com/gioZAK/justblog/blob/5d1973f4ca64550c18efcb51832c48be752e378e/docs/wireframes/wireframeshome.png">
 </details>
+
 <details>
 <summary>
 Wireframe Blog Post
 </summary>
 <img src="https://github.com/gioZAK/justblog/blob/5d1973f4ca64550c18efcb51832c48be752e378e/docs/wireframes/wireframesblogpost.png">
 </details>
+
 <details>
 <summary>
 Wireframe Profile
 </summary>
 <img src="https://github.com/gioZAK/justblog/blob/5d1973f4ca64550c18efcb51832c48be752e378e/docs/wireframes/wireframesuserprofile.png">
 </details>
+
 <details>
 <summary>
 Wireframe Post/Edit/Profile
 </summary>
 <img src="https://github.com/gioZAK/justblog/blob/5d1973f4ca64550c18efcb51832c48be752e378e/docs/wireframes/wireframespostedit.png">
 </details>
+</details>
+
+### Data Scheme
+
+<details>
+<summary>
+Blog Post
+</summary>
+<img src="https://github.com/gioZAK/justblog/blob/4a3b17ca5ac4e8e581a369318a68e97c26778c01/docs/datascheme/createpostscheme.png">
+</details>
+
+<details>
+<summary>
+Edit Post
+</summary>
+<img src="https://github.com/gioZAK/justblog/blob/4a3b17ca5ac4e8e581a369318a68e97c26778c01/docs/datascheme/editpostscheme.png">
+</details>
+
+<details>
+<summary>
+Edit Profile
+</summary>
+<img src="https://github.com/gioZAK/justblog/blob/4a3b17ca5ac4e8e581a369318a68e97c26778c01/docs/datascheme/editprofile.png">
 </details>
 
 ## UX
