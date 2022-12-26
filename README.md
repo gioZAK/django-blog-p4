@@ -239,6 +239,20 @@ You can access the list of issues/user stories used during the development of th
 - Outcome:
     - Pass.
 
+#### As a user I want to Logout.
+- Requirements:
+    - User is already registered.
+
+- Steps: 
+    1. Click on the Login button in the NavBar
+    2. Fill up the login form.
+    3. Click on the Login button.
+    4. User will be redirected to the home page and a success message is displayed.
+        - User is now Logged in.
+
+- Outcome:
+    - Pass.
+
 #### As a user I want to Create a Blog Post.
 - Requirements:
     - User is logged in.
