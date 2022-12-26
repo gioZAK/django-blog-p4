@@ -55,7 +55,7 @@ body {
 
 .image-flash {
     position: absolute;
-    bottom: 80%;
+    bottom: 60%;
     min-width: 30%;
     left: -5px;
     background-color: var(--light-s-color);
@@ -123,4 +123,12 @@ body {
 .no-link-style {
     color: inherit;
     text-decoration: none;
+}
+
+/* Media query */
+/* Screens larger than 1440px it will change the height of the user image flash */
+@media screen and (min-width: 1440px) {
+    .image-flash {
+        bottom: 75%;
+    }
 }
