@@ -13,10 +13,10 @@
         </div>
         {% endif %}
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-12 mt-3">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-12">
                     <div class="card mb-4">
                         <div class="card-body p-4 shadow-sm bg-white rounded">
                             <a href="{% url 'post_detail' post.slug %}" class=" no-link-style">
