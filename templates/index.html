@@ -20,7 +20,11 @@
                     <div class="card mb-4">
                         <div class="card-body p-4 shadow-sm bg-white rounded">
                             <a href="{% url 'post_detail' post.slug %}" class=" no-link-style">
-                                <!-- Post Image -->
+                                <!-- Post Title -->
+                                <div class="text-center">
+                                    <h2 class="card-title">{{ post.title }}</h2>
+                                </div>
+                                <!-- Post/Author Image -->
                                 <div class="image-container">
                                     {% if "placeholder" in post.featured_image.url %}
                                     <!-- source img "https://unsplash.com/it/foto/cckf4TsHAuw"-->
@@ -32,6 +36,7 @@
                                     <img class="card-img-top index-img" src=" {{ post.featured_image.url }}"
                                         alt="Image sent by post owner">
                                     {% endif %}
+                                    <!--Author Image and Name-->
                                     <div class="image-flash text-center">
                                         <div class="pt-2">
                                             {% if "placeholder" in post.author.profile.profile_picture.url %}
@@ -47,10 +52,11 @@
                                         <p class="author text-truncate text-center">{{ post.author }}</p>
                                     </div>
                                 </div>
-                                <!-- Post title and summary -->
-                                <div class=" post-link">
-                                    <h2 class="card-title">{{ post.title }}</h2>
+                                <!-- Post summary -->
+                                <div>
+                                    <hr>
                                     <p class="card-text">{{ post.excerpt }}</p>
+                                    <hr>
                                 </div>
                             </a>
                             <hr>
